@@ -1,0 +1,41 @@
+<% layout('boilerplate/boilerplate') -%>
+    <h1 class="mt-5">Add new Camp!!!</h1>
+    <form class="needs-validation" action="/camp/new" method="post" novalidate enctype="multipart/form-data">
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input class="form-control"id="name" type="text" name="Campground[name]" required>
+        <div class="valid-feedback">
+           Looks good!
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="loc" class="form-label">location</label>
+        <input id="loc" class="form-control" type="text" name="Campground[location]" required>
+        <div class="valid-feedback">
+           Looks good!
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="price" class="form-label">price</label>
+        <input id="price" class="form-control" type="number" name="Campground[price]" required>
+        <div class="valid-feedback">
+           Looks good!
+        </div>
+      </div>
+      <input type="file" name="image" value="" multiple>
+      <!-- <div class="mb-3">
+        <label for="img" class="form-label">Image URL</label>
+        <input id="img" class="form-control" type="text" name="Campground[image]" required>
+        <div class="valid-feedback">
+           Looks good!
+        </div> -->
+      <!-- </div> -->
+      <div class="mb-2">
+        <label for="des" class="form-label">description</label> <br>
+        <textarea id="des" class="form-control" name="Campground[description]" rows="3" cols="80" required></textarea>
+        <div class="valid-feedback">
+           Looks good!
+        </div>
+        </div>
+      <button class="btn btn-success" type="submit">Add!!</button>
+    </form>

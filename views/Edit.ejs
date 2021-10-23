@@ -1,0 +1,56 @@
+<% layout('boilerplate/boilerplate') -%>
+    <div class="w-75 mx-auto">
+      <h1 class="mt-5">Edit Camp!!!</h1>
+      <form class="needs-validation " action="/camp/<%=camp._id%>?_method=patch" method="post"  novalidate enctype="multipart/form-data">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input class="form-control"id="name" type="text" name="Campground[name]" value="<%=camp.name%>" required>
+          <div class="valid-feedback">
+             Looks good!
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="loc" class="form-label">location</label>
+          <input id="loc" class="form-control" type="text" name="Campground[location]" value="<%=camp.location%>" required>
+          <div class="valid-feedback">
+             Looks good!
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="price" class="form-label">price</label>
+          <input id="price" class="form-control" type="number" name="Campground[price]" value="<%=camp.price%>" required>
+          <div class="valid-feedback">
+             Looks good!
+          </div>
+        </div>
+        <div class="mb-2">
+          <label for="des" class="form-label">description</label> <br>
+          <textarea id="des" class="form-control" name="Campground[description]" rows="3" cols="80" required><%=camp.description%></textarea>
+          <div class="valid-feedback">
+             Looks good!
+          </div>
+          </div>
+          <div class="mb-2">
+            <label for="des" class="form-label">description</label> <br>
+            <div class="mb-3">
+                <label for="formFile" class="form-label">Default file input example</label>
+                <input class="form-control" type="file" id="formFileMultiple" name="images" multiple>
+            </div>
+            <div class="valid-feedback">
+               Looks good!
+            </div>
+          </div>
+          <div class="mb-3">
+            <%camp.images.forEach((img,i)=>{%>
+              <div class="">
+                <img src="<%=img.url%>" class="img-thumbnail"alt="">
+                <div class="form-check-inline">
+                  <input type="checkbox" name="deleteImages[]" id="image-<%=i%>" value="<%=img.fileName%>">
+                </div>
+                <label for="image-<%=i%>">Delete?</label>
+              </div>
+            <%})%>
+          </div>
+        <button class="btn btn-info" type="submit">Edit!!</button>
+      </form>
+    </div>
